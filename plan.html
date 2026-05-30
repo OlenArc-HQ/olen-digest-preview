@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- olenarc-systemplan-v1 -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OlenArc · System Map & Build Plan</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0B2447;--blue:#1B5BA0;--ink:#0F172A;--muted:#64748B;--line:#E6EBF2;--bg:#F4F6FA}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:620px;margin:0 auto;padding:0 16px 56px}
+  .hd{background:var(--navy);color:#fff;margin:0 -16px 18px;padding:30px 22px 26px}
+  .hd .k{font-size:12px;font-weight:800;letter-spacing:4px;color:#7FB0E0}
+  .hd h1{font-size:27px;font-weight:800;letter-spacing:-.5px;margin:8px 0 0}
+  .hd p{font-size:14px;color:#AFC6E0;margin:11px 0 0;line-height:1.5}
+  h2{font-size:13px;font-weight:800;letter-spacing:1.2px;color:var(--blue);text-transform:uppercase;margin:26px 2px 12px}
+  .surf{display:flex;flex-direction:column;gap:11px}
+  .s{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 16px;border-left:5px solid var(--blue)}
+  .s.you{border-left-color:#6D5BD0}.s.cust{border-left-color:#C77B22}
+  .s .t{font-size:16px;font-weight:800;color:var(--navy)}
+  .s .who{font-size:12px;font-weight:700;color:var(--muted);margin:2px 0 7px;text-transform:uppercase;letter-spacing:.5px}
+  .s .d{font-size:13.5px;color:#46505f;line-height:1.5}
+  .s .tag{display:inline-block;font-size:11px;font-weight:800;border-radius:6px;padding:2px 8px;margin-top:9px}
+  .tag.done{background:#E6F5EE;color:#1E7A4D}.tag.todo{background:#FBF0E2;color:#9a6a16}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:12.5px}
+  th{background:#F1F5FA;color:var(--navy);font-weight:800;text-align:left;padding:10px 9px;font-size:11px;letter-spacing:.3px;text-transform:uppercase}
+  td{padding:10px 9px;border-top:1px solid var(--line);color:#2a3340;line-height:1.35;vertical-align:top}
+  td .c{font-weight:700;color:var(--navy)}
+  .pill{display:inline-block;font-size:10.5px;font-weight:800;border-radius:5px;padding:1px 6px;white-space:nowrap}
+  .pill.done{background:#E6F5EE;color:#1E7A4D}.pill.todo{background:#FBF0E2;color:#9a6a16}.pill.gate{background:#FBE9E9;color:#B23A3A}
+  .ph{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+  .ph .pn{display:flex;align-items:center;gap:9px;margin-bottom:4px}
+  .ph .num{width:30px;height:30px;border-radius:9px;background:var(--navy);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .ph.active .num{background:var(--blue)}
+  .ph .pt{font-size:16px;font-weight:800;color:var(--navy)}
+  .ph .pd{font-size:13px;color:#46505f;line-height:1.55;margin-top:8px}
+  .ph .meta{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.6}
+  .ph .meta b{color:var(--navy)}
+  .ph.active{border-color:var(--blue);box-shadow:0 2px 12px rgba(27,91,160,.12)}
+  .start{background:linear-gradient(135deg,#0B2447,#163d68);color:#fff;border-radius:14px;padding:20px;margin-top:6px;text-align:center}
+  .start h3{font-size:18px;font-weight:800;margin:0}
+  .start p{font-size:13.5px;color:#C8D8EC;line-height:1.55;margin:9px 0 0}
+  .foot{text-align:center;color:#9aa3b2;font-size:11.5px;margin-top:22px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hd">
+    <div class="k">INTERNAL · FOR LORENZO</div>
+    <h1>System Map & Build Plan</h1>
+    <p>How the pieces connect — and the phased plan to wire the customer side onto olenarc.com with login.</p>
+  </div>
+
+  <h2>Three surfaces · three audiences</h2>
+  <div class="surf">
+    <div class="s">
+      <div class="t">🏘️ The community calendar</div>
+      <div class="who">Residents · public, no login</div>
+      <div class="d">The live calendar lives in the <b>olenhub</b> web-app; the <b>weekly digest</b> goes out on Facebook and pulls residents in. This is the GROWTH funnel — keep it frictionless.</div>
+      <span class="tag done">✓ LIVE / BUILT</span>
+    </div>
+    <div class="s you">
+      <div class="t">🛠️ The Digest Console</div>
+      <div class="who">You (Lorenzo) · internal back-office</div>
+      <div class="d">Your private tool that generates the weekly post + flyers. Nobody else uses it. It's the engine behind the funnel — stays separate from the customer side.</div>
+      <span class="tag done">✓ BUILT (Plan 1 + 2)</span>
+    </div>
+    <div class="s cust">
+      <div class="t">🏛️ The Customer Portal</div>
+      <div class="who">Prospects & paying clients · login</div>
+      <div class="d">On <b>olenarc.com</b>: free signup → see <b>Impact</b> + the <b>For-Your-Org demo</b> (the hook), surrounded by your case studies. Upgrade → the paid <b>customization workspace</b>. This is REVENUE.</div>
+      <span class="tag todo">◌ TO BUILD ← next</span>
+    </div>
+  </div>
+
+  <h2>Components</h2>
+  <table>
+    <tr><th>Piece</th><th>Who</th><th>Tier</th><th>Status</th></tr>
+    <tr><td><span class="c">olenhub app</span><br>live calendar</td><td>Residents</td><td>Public</td><td><span class="pill done">live</span></td></tr>
+    <tr><td><span class="c">Weekly digest</span><br>FB post + flyers</td><td>Residents</td><td>Public</td><td><span class="pill done">built</span></td></tr>
+    <tr><td><span class="c">Digest Console</span><br>generator</td><td>You</td><td>Internal</td><td><span class="pill done">built</span></td></tr>
+    <tr><td><span class="c">Marketing site</span><br>olenarc.com</td><td>Prospects</td><td>Public</td><td><span class="pill done">live</span></td></tr>
+    <tr><td><span class="c">Login / accounts</span><br>(Clerk)</td><td>All accounts</td><td>—</td><td><span class="pill todo">build</span></td></tr>
+    <tr><td><span class="c">Impact dashboard</span></td><td>Prospects/clients</td><td><b>Free</b></td><td><span class="pill todo">build</span></td></tr>
+    <tr><td><span class="c">For-Your-Org demo</span></td><td>Prospects</td><td><b>Free</b></td><td><span class="pill todo">demo done</span></td></tr>
+    <tr><td><span class="c">Customization workspace</span><br>grants/MOU/inbox/AI/comms</td><td>Paying clients</td><td><b>Paid</b></td><td><span class="pill todo">build</span></td></tr>
+    <tr><td><span class="c">Analytics</span><br>Dub + Umami → real Impact</td><td>(feeds Impact)</td><td>—</td><td><span class="pill gate">needs app</span></td></tr>
+    <tr><td><span class="c">Billing</span><br>(Stripe)</td><td>Paid tier</td><td>—</td><td><span class="pill todo">phase 2</span></td></tr>
+  </table>
+
+  <h2>Build plan</h2>
+
+  <div class="ph">
+    <div class="pn"><div class="num">0</div><div class="pt">Static demos · NOW</div></div>
+    <div class="pd">The preview site (Impact + For-Your-Org) = your pitch material. Send the link to a prospect today — no backend needed.</div>
+    <div class="meta"><b>Status:</b> ✓ done. <b>Use it to validate demand before building the portal.</b></div>
+  </div>
+
+  <div class="ph active">
+    <div class="pn"><div class="num">1</div><div class="pt">Customer Portal MVP · login + free tier ← START HERE</div></div>
+    <div class="pd">olenarc.com gets <b>“Sign in / Get started”</b> → login → a dashboard: the free <b>Impact</b> view + the <b>For-Your-Org demo</b>, with a “contact us to get your own.” Impact shows demo data first (no data dependency).</div>
+    <div class="meta"><b>Tech:</b> Next.js · <b>Clerk</b> (reuse olenhub's login) · host on Vercel. <b>Outcome:</b> a prospect signs up free, logs in, sees value → leads.<br><b>Effort:</b> ~2–4 weeks focused.</div>
+  </div>
+
+  <div class="ph">
+    <div class="pn"><div class="num">2</div><div class="pt">Paid customization workspace</div></div>
+    <div class="pd">Per-client workspaces (their own data): grants pipeline, MOU tracker, member inbox, AI assistant, comms. Plus billing + data import (email/Sheets/PDF → AI aggregation).</div>
+    <div class="meta"><b>Tech:</b> + database (Postgres/Supabase) · <b>Stripe</b> (subscriptions) · AI for the assistant. <b>This is the real product</b> — build after Phase 1 proves demand. <b>Effort:</b> months.</div>
+  </div>
+
+  <div class="ph">
+    <div class="pn"><div class="num">3</div><div class="pt">Real data + one account</div></div>
+    <div class="pd">Wire <b>Dub + Umami</b> → live Impact numbers; tie olenhub + console + portal into one OlenArc account.</div>
+    <div class="meta"><b>Gated on:</b> the engineer + the app being live (Clerk sharing, the API, analytics). Until then the portal shows DEMO data.</div>
+  </div>
+
+  <div class="start">
+    <h3>Recommended next: Phase 1</h3>
+    <p>Turn the static demo into a real “sign up + log in” portal on olenarc.com — same content we already built, now behind a free login. Lowest risk, funnels prospects, no dependency on the engineer.</p>
+  </div>
+
+  <div class="foot">OlenArc · internal planning view · 2026-05-30</div>
+</div>
+</body>
+</html>
