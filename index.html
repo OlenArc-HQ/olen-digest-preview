@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- digest-postpage-v17 -->
+<!-- digest-postpage-v18-unified -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>This Week's Post · Arctic Slope</title>
+<title>OlenArc · Weekly Community Digest</title>
 <style>
   *{box-sizing:border-box}
-  body{margin:0;padding:16px 14px 48px;background:#e9edf2;color:#1a2230;
+  body{margin:0;padding:0 14px 48px;background:#e9edf2;color:#1a2230;
        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
   .wrap{max-width:480px;margin:0 auto}
-  h1{font-size:20px;margin:4px 2px 4px}
+  .tabs{position:sticky;top:0;z-index:10;display:flex;gap:8px;background:#e9edf2;padding:14px 0 12px}
+  .tab{flex:1;background:#fff;color:#46505f;border:1px solid #dfe3ea;border-radius:11px;padding:13px 8px;
+       font-size:14.5px;font-weight:700;cursor:pointer;margin:0}
+  .tab.active{background:#0B2447;color:#fff;border-color:#0B2447}
+  h1{font-size:20px;margin:6px 2px 4px}
   .sub{color:#5b6675;font-size:13.5px;line-height:1.5;margin:0 2px 16px}
   .sub b{color:#1a2230}
   .card{background:#fff;border-radius:14px;padding:15px;margin-bottom:14px;box-shadow:0 2px 8px rgba(20,35,59,.07)}
@@ -30,45 +34,55 @@
   .ph .cap{font-size:12.5px;color:#6b7480;margin-top:6px;text-align:center}
   textarea{width:100%;border:1px solid #dfe3ea;border-radius:8px;padding:10px;font:inherit;font-size:13px;
            min-height:340px;color:#1a2230;background:#fbfcfd;resize:vertical}
-  button{margin-top:9px;width:100%;background:#16233b;color:#fff;border:0;border-radius:9px;padding:13px 16px;
+  button.copy{margin-top:9px;width:100%;background:#16233b;color:#fff;border:0;border-radius:9px;padding:13px 16px;
          font-size:15px;font-weight:700;cursor:pointer}
   ol{margin:4px 0 0;padding-left:22px}
   ol li{font-size:14px;line-height:1.7;color:#2a3340}
   ol li b{color:#16233b}
+  .impact-img{width:100%;border-radius:14px;display:block;box-shadow:0 2px 10px rgba(20,35,59,.12)}
+  .badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.4px;color:#9a6a16;background:#FBF0E2;border:1px solid #f0dcbd;border-radius:6px;padding:3px 8px}
   .foot{text-align:center;color:#8a94a3;font-size:11.5px;margin-top:20px;line-height:1.5}
+  [hidden]{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>📣 This week's Facebook post — ready</h1>
-  <p class="sub">This week = a <b>4-photo post</b> (1 calendar + 3 event flyers) + 1 caption.</p>
 
-  <div class="card">
-    <div class="step">How it looks in the feed</div>
-    <div class="fb">
-      <div class="fbhead"><div class="av"></div><div><div class="fbname">Utqiaġvik Update</div><div class="fbmeta">Just now · 🌐</div></div></div>
-      <div class="grid">
-        <div class="cell" style="background-image:url(poster.png?v=17)"></div>
-        <div class="cell" style="background-image:url(flyer-youth.jpg)"></div>
-        <div class="cell" style="background-image:url(flyer-mmip.jpg)"></div>
-        <div class="cell" style="background-image:url(flyer-service.jpg)"></div>
+  <div class="tabs">
+    <button class="tab active" id="tab-digest" onclick="showTab('digest')">📅 This Week's Digest</button>
+    <button class="tab" id="tab-impact" onclick="showTab('impact')">📊 Impact</button>
+  </div>
+
+  <div id="panel-digest">
+    <h1>📣 This week's Facebook post — ready</h1>
+    <p class="sub">This week = a <b>4-photo post</b> (1 calendar + 3 event flyers) + 1 caption.</p>
+
+    <div class="card">
+      <div class="step">How it looks in the feed</div>
+      <div class="fb">
+        <div class="fbhead"><div class="av"></div><div><div class="fbname">Utqiaġvik Update</div><div class="fbmeta">Just now · 🌐</div></div></div>
+        <div class="grid">
+          <div class="cell" style="background-image:url(poster.png?v=17)"></div>
+          <div class="cell" style="background-image:url(flyer-youth.jpg)"></div>
+          <div class="cell" style="background-image:url(flyer-mmip.jpg)"></div>
+          <div class="cell" style="background-image:url(flyer-service.jpg)"></div>
+        </div>
       </div>
+      <p class="hint">People see a <b>2×2 grid</b> (tiles get cropped). They <b>tap</b> to swipe through all 4 full-size. That's why the calendar is photo #1.</p>
     </div>
-    <p class="hint">People see a <b>2×2 grid</b> (tiles get cropped). They <b>tap</b> to swipe through all 4 full-size. That's why the calendar is photo #1.</p>
-  </div>
 
-  <div class="card">
-    <div class="step">Save these 4 photos · in this order</div>
-    <div class="ph"><span class="n">1</span><img src="poster.png?v=17" alt="Calendar"><div class="cap">The calendar (cover)</div></div>
-    <div class="ph"><span class="n">2</span><img src="flyer-youth.jpg" alt="Summer Youth"><div class="cap">Summer Youth Program</div></div>
-    <div class="ph"><span class="n">3</span><img src="flyer-mmip.jpg" alt="MMIP"><div class="cap">MMIP Justice Summit &amp; Red Dress Gala</div></div>
-    <div class="ph"><span class="n">4</span><img src="flyer-service.jpg" alt="Sunday Service"><div class="cap">Sunday Service</div></div>
-    <p class="hint">📱 <b>Long-press each → Save to Photos.</b> Save all 4.</p>
-  </div>
+    <div class="card">
+      <div class="step">Save these 4 photos · in this order</div>
+      <div class="ph"><span class="n">1</span><img src="poster.png?v=17" alt="Calendar"><div class="cap">The calendar (cover)</div></div>
+      <div class="ph"><span class="n">2</span><img src="flyer-youth.jpg" alt="Summer Youth"><div class="cap">Summer Youth Program</div></div>
+      <div class="ph"><span class="n">3</span><img src="flyer-mmip.jpg" alt="MMIP"><div class="cap">MMIP Justice Summit &amp; Red Dress Gala</div></div>
+      <div class="ph"><span class="n">4</span><img src="flyer-service.jpg" alt="Sunday Service"><div class="cap">Sunday Service</div></div>
+      <p class="hint">📱 <b>Long-press each → Save to Photos.</b> Save all 4.</p>
+    </div>
 
-  <div class="card">
-    <div class="step">The caption</div>
-    <textarea id="cap" readonly>📅 This week across the Arctic Slope · May 25–31
+    <div class="card">
+      <div class="step">The caption</div>
+      <textarea id="cap" readonly>📅 This week across the Arctic Slope · May 25–31
 👉 Swipe through the flyers below 👇
 
 🔵 WED 8:30 AM · Summer Youth Program
@@ -88,20 +102,42 @@ Barrow Samoan Assembly of God · Lions Club Hall
 
 💙 Sponsored by the City of Utqiaġvik + Arctic Slope Community Foundation
 ⚡ Powered by OlenArc · Quyanaqpak!</textarea>
-    <button onclick="navigator.clipboard.writeText(document.getElementById('cap').value).then(()=>{this.textContent='Copied ✓'})">Copy caption</button>
+      <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('cap').value).then(()=>{this.textContent='Copied ✓'})">Copy caption</button>
+    </div>
+
+    <div class="card">
+      <div class="step">How to post</div>
+      <ol>
+        <li><b>Long-press</b> each photo above → <b>Save to Photos</b> (all 4).</li>
+        <li>Tap <b>Copy caption</b>.</li>
+        <li>Open the <b>Utqiaġvik Update</b> Facebook group → <b>Create post</b>.</li>
+        <li>Add the 4 photos (<b>calendar first</b>), <b>paste</b> the caption, post. ✅</li>
+      </ol>
+    </div>
+
+    <div class="foot">Auto-generated from olenhub · week of 2026-05-25</div>
   </div>
 
-  <div class="card">
-    <div class="step">How to post</div>
-    <ol>
-      <li><b>Long-press</b> each photo above → <b>Save to Photos</b> (all 4).</li>
-      <li>Tap <b>Copy caption</b>.</li>
-      <li>Open the <b>Utqiaġvik Update</b> Facebook group → <b>Create post</b>.</li>
-      <li>Add the 4 photos (<b>calendar first</b>), <b>paste</b> the caption, post. ✅</li>
-    </ol>
+  <div id="panel-impact" hidden>
+    <h1>📊 Impact Snapshot</h1>
+    <p class="sub">The board / sponsor one-pager — proves reach &amp; ROI to City + ASCF (and future sponsors). <span class="badge">MOCK DATA</span> — becomes real once the app + click/session tracking are live.</p>
+    <div class="card">
+      <img class="impact-img" src="impact-snapshot.png?v=1" alt="Impact Snapshot">
+    </div>
+    <p class="hint">Same tool, second tab — in the Console you'd hit <b>Export PNG</b> and send this to a sponsor each month.</p>
   </div>
 
-  <div class="foot">Auto-generated from olenhub · week of 2026-05-25</div>
+  <div class="foot">OlenArc · Weekly Community Digest — Arctic Slope</div>
 </div>
+
+<script>
+function showTab(w){
+  document.getElementById('panel-digest').hidden = w!=='digest';
+  document.getElementById('panel-impact').hidden = w!=='impact';
+  document.getElementById('tab-digest').classList.toggle('active', w==='digest');
+  document.getElementById('tab-impact').classList.toggle('active', w==='impact');
+  window.scrollTo(0,0);
+}
+</script>
 </body>
 </html>
