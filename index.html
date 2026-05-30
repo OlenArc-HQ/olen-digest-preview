@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- digest-postpage-v20-saas -->
+<!-- digest-postpage-v21-saas -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,55 +10,60 @@
 <style>
   :root{--navy:#0B2447;--blue:#1B5BA0;--ink:#0F172A;--muted:#64748B;--line:#E6EBF2;--bg:#F4F6FA}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-       font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-
-  .appbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);
-          display:flex;align-items:center;gap:11px;padding:11px 16px}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .appbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:11px;padding:11px 16px}
   .brand{display:flex;align-items:center;gap:10px;min-width:0}
   .brand .mk{width:37px;height:37px;flex:0 0 auto;display:block}
   .brand .nm{font-weight:800;font-size:17px;letter-spacing:.2px;line-height:1.1;color:var(--navy)}
   .brand .wh{font-size:11px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .spacer{flex:1}
-  .chip{font-size:11.5px;font-weight:700;color:var(--blue);background:#EAF2FB;border:1px solid #D8E6F6;
-        border-radius:999px;padding:6px 11px;white-space:nowrap}
+  .chip{font-size:11.5px;font-weight:700;color:var(--blue);background:#EAF2FB;border:1px solid #D8E6F6;border-radius:999px;padding:6px 11px;white-space:nowrap}
   .avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#2E78C7,#0B2447);flex:0 0 auto}
-
   .navwrap{position:sticky;top:57px;z-index:19;background:var(--bg);padding:14px 16px 4px}
-  .seg{display:flex;gap:4px;background:#E7ECF3;border-radius:13px;padding:4px;max-width:560px;margin:0 auto}
-  .seg button{flex:1;border:0;background:transparent;border-radius:10px;padding:11px 8px;font:inherit;
-              font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:.12s}
+  .seg{display:flex;gap:4px;background:#E7ECF3;border-radius:13px;padding:4px;max-width:600px;margin:0 auto}
+  .seg button{flex:1;border:0;background:transparent;border-radius:10px;padding:11px 4px;font:inherit;font-size:12.5px;font-weight:700;color:var(--muted);cursor:pointer;transition:.12s;white-space:nowrap}
   .seg button.active{background:#fff;color:var(--navy);box-shadow:0 1px 5px rgba(11,36,71,.13)}
-
   .content{max-width:560px;margin:0 auto;padding:10px 16px 52px}
   .ph1{font-size:22px;font-weight:800;letter-spacing:-.4px;margin:8px 2px 3px}
   .sub{color:var(--muted);font-size:13.5px;line-height:1.55;margin:0 2px 18px}
   .sub b{color:var(--ink)}
   .badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.4px;color:#9a6a16;background:#FBF0E2;border:1px solid #f0dcbd;border-radius:6px;padding:2px 7px;vertical-align:middle}
-
   .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;margin-bottom:14px;box-shadow:0 1px 3px rgba(20,35,59,.04)}
   .step{font-size:11.5px;font-weight:800;letter-spacing:.6px;color:var(--blue);text-transform:uppercase;margin-bottom:12px}
   .fb{border:1px solid var(--line);border-radius:12px;overflow:hidden}
   .fbhead{display:flex;align-items:center;gap:9px;padding:10px 12px}
   .av{width:38px;height:38px;border-radius:50%;background:var(--navy);flex:0 0 auto}
-  .fbname{font-size:14px;font-weight:700}
-  .fbmeta{font-size:11.5px;color:#8a94a3}
+  .fbname{font-size:14px;font-weight:700}.fbmeta{font-size:11.5px;color:#8a94a3}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
   .cell{padding-top:100%;background-size:cover;background-position:center top;background-color:#eee}
-  .hint{font-size:13px;color:#46505f;line-height:1.55;margin:12px 2px 0}
-  .hint b{color:var(--navy)}
+  .hint{font-size:13px;color:#46505f;line-height:1.55;margin:12px 2px 0}.hint b{color:var(--navy)}
   .ph{position:relative;margin-bottom:14px}
   .ph img{width:100%;border-radius:11px;display:block;border:1px solid var(--line)}
   .ph .n{position:absolute;top:9px;left:9px;width:29px;height:29px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.28)}
   .ph .cap{font-size:12.5px;color:var(--muted);margin-top:7px;text-align:center}
-  textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;font-size:13px;
-           min-height:330px;color:var(--ink);background:#FBFCFE;resize:vertical;line-height:1.5}
-  button.copy{margin-top:11px;width:100%;background:var(--navy);color:#fff;border:0;border-radius:10px;padding:13px 16px;
-         font:inherit;font-size:15px;font-weight:700;cursor:pointer}
-  ol{margin:2px 0 0;padding-left:20px}
-  ol li{font-size:14px;line-height:1.75;color:#2a3340}
-  ol li b{color:var(--navy)}
+  textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;font-size:13px;min-height:360px;color:var(--ink);background:#FBFCFE;resize:vertical;line-height:1.5}
+  button.copy{margin-top:11px;width:100%;background:var(--navy);color:#fff;border:0;border-radius:10px;padding:13px 16px;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+  ol{margin:2px 0 0;padding-left:20px}ol li{font-size:14px;line-height:1.75;color:#2a3340}ol li b{color:var(--navy)}
   .impact-img{width:100%;border-radius:14px;display:block;box-shadow:0 2px 12px rgba(20,35,59,.13)}
+  /* For Your Org */
+  .hero{padding:8px 2px 0}
+  .hero .hk{font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--blue);text-transform:uppercase}
+  .hero .hh{font-size:24px;font-weight:800;letter-spacing:-.5px;line-height:1.22;margin-top:9px;color:var(--navy)}
+  .hero .hs{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:12px}
+  .framing{font-size:12.5px;color:#7c8a9c;line-height:1.55;background:#EEF2F7;border-radius:11px;padding:12px 14px;margin:15px 0 6px}
+  .mod .mh{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+  .mod .mi{font-size:22px;line-height:1}
+  .mod .mt{font-size:16.5px;font-weight:800;color:var(--navy)}
+  .mod .mb{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:13px}
+  .mod ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+  .mod li{font-size:13px;line-height:1.45;color:#2a3340;background:#F7F9FC;border:1px solid #ECF0F5;border-left:3px solid var(--blue);border-radius:8px;padding:9px 12px}
+  .mod.assistant li{border-left-color:#6D5BD0}
+  .mod li b{color:var(--navy)}
+  .ctacard{background:linear-gradient(135deg,#0B2447,#163d68);border-radius:16px;padding:24px 20px;color:#fff;text-align:center;margin-top:4px;box-shadow:0 4px 16px rgba(11,36,71,.18)}
+  .ctacard h3{font-size:20px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+  .ctacard p{font-size:13.5px;color:#C8D8EC;line-height:1.55;margin-top:11px}
+  .ctacard a.book{display:block;background:#fff;color:var(--navy);font-weight:800;font-size:15.5px;text-decoration:none;border-radius:11px;padding:15px;margin-top:18px}
+  .ctacard .em{font-size:13px;color:#AFC6E0;margin-top:13px}.ctacard .em a{color:#fff;font-weight:600}
   .foot{text-align:center;color:#9aa3b2;font-size:11.5px;margin-top:24px;line-height:1.5}
   [hidden]{display:none}
 </style>
@@ -68,10 +73,7 @@
 <div class="appbar">
   <div class="brand">
     <img class="mk" src="logo-mark.svg" alt="OlenArc">
-    <div>
-      <div class="nm">OlenArc</div>
-      <div class="wh">Digest Console · Arctic Slope</div>
-    </div>
+    <div><div class="nm">OlenArc</div><div class="wh">Digest Console · Arctic Slope</div></div>
   </div>
   <div class="spacer"></div>
   <div class="chip">Week of May 25–31</div>
@@ -82,6 +84,7 @@
   <div class="seg">
     <button class="active" id="tab-digest" onclick="showTab('digest')">📅 This Week</button>
     <button id="tab-impact" onclick="showTab('impact')">📊 Impact</button>
+    <button id="tab-org" onclick="showTab('org')">🏛️ For Your Org</button>
   </div>
 </div>
 
@@ -90,7 +93,6 @@
   <div id="panel-digest">
     <div class="ph1">This week's Facebook post</div>
     <p class="sub">A <b>4-photo post</b> (1 calendar + 3 event flyers) + 1 caption — ready to publish to the Utqiaġvik Update group.</p>
-
     <div class="card">
       <div class="step">How it looks in the feed</div>
       <div class="fb">
@@ -104,7 +106,6 @@
       </div>
       <p class="hint">People see a <b>2×2 grid</b>; they <b>tap</b> to swipe all 4 full-size. That's why the calendar is photo #1.</p>
     </div>
-
     <div class="card">
       <div class="step">The 4 photos · in order</div>
       <div class="ph"><span class="n">1</span><img src="poster.png?v=17" alt="Calendar"><div class="cap">The calendar (cover)</div></div>
@@ -113,7 +114,6 @@
       <div class="ph"><span class="n">4</span><img src="flyer-service.jpg" alt="Sunday Service"><div class="cap">Sunday Service</div></div>
       <p class="hint">📱 <b>Long-press each → Save to Photos.</b></p>
     </div>
-
     <div class="card">
       <div class="step">The caption</div>
       <textarea id="cap" readonly>📅 This week across the Arctic Slope · May 25–31
@@ -140,7 +140,6 @@ Barrow Samoan Assembly of God · Lions Club Hall
 ⚡ Powered by OlenArc · Quyanaqpak!</textarea>
       <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('cap').value).then(()=>{this.textContent='Copied ✓'})">Copy caption</button>
     </div>
-
     <div class="card">
       <div class="step">How to post</div>
       <ol>
@@ -154,11 +153,80 @@ Barrow Samoan Assembly of God · Lions Club Hall
 
   <div id="panel-impact" hidden>
     <div class="ph1">Impact Snapshot</div>
-    <p class="sub">The board / sponsor one-pager — proves reach &amp; ROI to City + ASCF and future sponsors. <span class="badge">MOCK DATA</span> — becomes real once the app + click/session tracking go live.</p>
-    <div class="card">
-      <img class="impact-img" src="impact-snapshot.png?v=3" alt="Impact Snapshot">
-    </div>
+    <p class="sub">The board / sponsor one-pager — proves reach &amp; ROI to City + ASCF and future sponsors. <span class="badge">DEMO DATA</span></p>
+    <div class="card"><img class="impact-img" src="impact-snapshot.png?v=4" alt="Impact Snapshot"></div>
     <p class="hint">In the live Console you'd hit <b>Export PNG</b> and send this to a sponsor each month.</p>
+  </div>
+
+  <div id="panel-org" hidden>
+    <div class="hero">
+      <div class="hk">Built for your organization</div>
+      <div class="hh">Your grants, partners, and members — pulled into one workspace you own.</div>
+      <div class="hs">A tailored preview configured for an Arctic Slope organization, showing what's scattered today across email, PDFs, Facebook, and spreadsheets unified into one AI-aggregated hub. No login, no slide deck — just your world, organized. Your data stays yours, aligned with the CARE Principles and tribal data sovereignty.</div>
+    </div>
+    <div class="framing">This is a customization demo, not a fixed product. Every tile, funder, and request below is sample data standing in for what your organization would see once your scattered tools are connected — imagine your org's version, with your programs, your funders, and your members.</div>
+
+    <div class="card mod">
+      <div class="mh"><span class="mi">📋</span><span class="mt">Grants &amp; funding pipeline</span></div>
+      <div class="mb">Every award and opportunity in one register — deadlines, drawdowns, and reports tracked before they're late, so closeout stops being a fire drill.</div>
+      <ul>
+        <li>ANA SEDS — programmatic report due Jun 14 · owner: Grants Dir.</li>
+        <li>IHS DGM — FFR / SF-425 due Jul 30 · drawdown pending</li>
+        <li>HUD NAHASDA (IHBG) — awarded $2.4M · performance through 2027</li>
+        <li>Denali Commission — village grid resilience · drafting, due Aug 8</li>
+      </ul>
+    </div>
+
+    <div class="card mod">
+      <div class="mh"><span class="mi">🤝</span><span class="mt">Partner &amp; MOU tracker</span></div>
+      <div class="mb">A plain-language registry of every MOU, data-sharing agreement, and 638 compact — who it commits you to, who to call, and when it renews.</div>
+      <ul>
+        <li>BIA 638 compact — renews Dec 2026 · agency program officer</li>
+        <li>ASRC / ANCSA corp — data-sharing MOA · active · last contact Apr 19</li>
+        <li>North Slope Borough — joint SAR services MOU · expires Sep 30, renew soon</li>
+        <li>ANTHC — health data-sharing agreement · CARE-aligned · owner: Health Dir.</li>
+      </ul>
+    </div>
+
+    <div class="card mod">
+      <div class="mh"><span class="mi">📨</span><span class="mt">Member request inbox</span></div>
+      <div class="mb">One intake for housing, enrollment, and assistance — members see status, and verified documents are reused once with consent instead of re-submitted monthly.</div>
+      <ul>
+        <li>Heating / energy assistance — under review · front desk · 2 days</li>
+        <li>Housing repair (weatherization) — needs income verification · SLA 5 days</li>
+        <li>Enrollment / CIB request — approved · documents on file</li>
+        <li>General assistance renewal — received · reuses last month's proof</li>
+      </ul>
+    </div>
+
+    <div class="card mod assistant">
+      <div class="mh"><span class="mi">💬</span><span class="mt">Ask your org anything</span></div>
+      <div class="mb">Finds and summarizes what your team already knows across files, sheets, and notes — source-cited and read-only. It only reads what you connect; only your team sees the answers.</div>
+      <ul>
+        <li><b>"Which grants have reports due in the next 30 days?"</b> → 3 found, sourced</li>
+        <li><b>"Who's our program officer for the ANA SEDS grant?"</b> → contact + last contact</li>
+        <li><b>"Summarize this quarter's housing program spending."</b> → 2 sheets, 1 PDF</li>
+        <li><b>"Draft a council update from this month's activity."</b> → draft for staff sign-off</li>
+      </ul>
+    </div>
+
+    <div class="card mod">
+      <div class="mh"><span class="mi">📣</span><span class="mt">Community comms &amp; alerts</span></div>
+      <div class="mb">Post meeting notices, events, and deadlines once — optionally cross-posted to Facebook, SMS, and email — with an emergency mode for boil-water and shelter-in-place.</div>
+      <ul>
+        <li>Council meeting + agenda — Jun 12, 6pm · posted to hub + Facebook</li>
+        <li>Subsistence / whaling season notice — pinned for all villages</li>
+        <li>Boil-water advisory (emergency push) — sent to phones across 3 villages</li>
+        <li>Energy assistance deadline — Jun 30 · also sent via SMS + KBRW notice</li>
+      </ul>
+    </div>
+
+    <div class="ctacard">
+      <h3>See it with your own programs and grants.</h3>
+      <p>A 30-minute walkthrough loaded around your actual funders, partners, and member services — and your data-sovereignty questions answered plainly. No slide deck. From a Native-serving team. Bring your toughest question.</p>
+      <a class="book" href="https://cal.com/lorenzo-chu" target="_blank" rel="noopener">📅 Schedule a call →</a>
+      <div class="em">or email <a href="mailto:lorenzo@olenarc.com">lorenzo@olenarc.com</a></div>
+    </div>
   </div>
 
   <div class="foot">OlenArc · Weekly Community Digest — Arctic Slope &nbsp;·&nbsp; demo preview</div>
@@ -166,10 +234,10 @@ Barrow Samoan Assembly of God · Lions Club Hall
 
 <script>
 function showTab(w){
-  document.getElementById('panel-digest').hidden = w!=='digest';
-  document.getElementById('panel-impact').hidden = w!=='impact';
-  document.getElementById('tab-digest').classList.toggle('active', w==='digest');
-  document.getElementById('tab-impact').classList.toggle('active', w==='impact');
+  for (const t of ['digest','impact','org']) {
+    document.getElementById('panel-'+t).hidden = w!==t;
+    document.getElementById('tab-'+t).classList.toggle('active', w===t);
+  }
   window.scrollTo({top:0,behavior:'instant'});
 }
 </script>
